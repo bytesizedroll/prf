@@ -1,2 +1,2 @@
 # prf
-My attempts at creating pseudorandom number generators.
+My attempts at creating pseudorandom number generators. Written in Python.
