@@ -25,12 +25,12 @@ def new_seed(seed): #Function to generate new seed based on middle squares metho
     return six_str
 
 def new_seed_check(new_seed): #Function to check newly generated seeds after primary seed generation
-    if int(new_seed) == 0 or len(new_seed) < 6:
+    if new_seed == '000000' or len(new_seed) < 6:
         return seed_check()
     else:
         return int(new_seed)
 
-def generate_number(): #Function that generates the pseudorandom number 
+def generate_number(): #Function that generates the pseudorandom number
     seed = seed_check()
     count = 0
     rand_num = ''
@@ -39,5 +39,3 @@ def generate_number(): #Function that generates the pseudorandom number
         seed = new_seed_check(new_seed(seed))
         count += 1
     return int(rand_num)
-
-print(generate_number())
