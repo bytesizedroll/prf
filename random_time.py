@@ -17,3 +17,27 @@ def seed_check(): #Function to check if seed length is 6 if not, generate new se
     while len(str(seed)) != 6: #If seed length is not 6
         seed = set_seed() #Generate new seed
     return seed
+
+def new_seed(seed): #Function to generate new seed based on middle squares method
+    new_num = seed * seed
+    str_num = str(new_num)
+    six_str = str_num[3:9]
+    return six_str
+
+def new_seed_check(new_seed): #Function to check newly generated seeds after primary seed generation
+    if int(new_seed) == 0 or len(new_seed) < 6:
+        return seed_check()
+    else:
+        return int(new_seed)
+
+def generate_number(): #Function that generates the pseudorandom number 
+    seed = seed_check()
+    count = 0
+    rand_num = ''
+    while count != 100:
+        rand_num += new_seed(seed)
+        seed = new_seed_check(new_seed(seed))
+        count += 1
+    return int(rand_num)
+
+print(generate_number())
